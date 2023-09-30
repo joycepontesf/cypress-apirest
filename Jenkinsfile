@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Execução dos Cypress'){
             steps {
-                sh 'NO_COLOR=1 npm run cy:run-ci --headless --browser electron'
+                sh 'NO_COLOR=1 npm run cy:run-ci'
             }
         }
     }
