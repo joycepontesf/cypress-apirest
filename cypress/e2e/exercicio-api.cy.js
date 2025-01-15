@@ -84,6 +84,6 @@ describe('Testes da Funcionalidade Usuários', () => {
                     expect(response.body.message).to.equal('Registro excluído com sucesso')
                     expect(response.status).to.equal(200)
                })
-          })
+          })   
     });
 });
