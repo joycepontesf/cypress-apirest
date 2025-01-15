@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress CI para API Rest
 
 on:
   push:
