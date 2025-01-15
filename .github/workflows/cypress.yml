@@ -7,25 +7,32 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          
-      - name: Cypress run
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Iniciar servidor
+        run: npm start
+
+      - name: Aguardar servidor
+        run: npx wait-on http://localhost:3000
+
+      - name: Executar Cypress
         uses: cypress-io/github-action@v6
         continue-on-error: true
         with:
-          install-command: npm install
           browser: chrome
-          start: npm start
-  
-      - name: Publish Report
+
+      - name: Publicar relatório
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
